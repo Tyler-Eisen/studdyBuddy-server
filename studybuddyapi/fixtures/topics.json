@@ -1,0 +1,74 @@
+[
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "1",
+      "fields": {
+          "title": "Prototypal Inheritance in JavaScript",
+          "content": "We discussed the concept of adding methods to JavaScript's native object prototypes, such as the String prototype, and the implications of modifying native prototypes.",
+          "category": "javascript"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "2",
+      "fields": {
+          "title": "Implementing Logic with Python Functions",
+          "content": "We talked about writing Python functions for age-related benefits and a function to sum odd numbers up to a given number, with an emphasis on correct logic and syntax.",
+          "category": "python"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "3",
+      "fields": {
+          "title": "Constructor Functions vs Utility Functions in JavaScript",
+          "content": "We explored constructor functions, their distinction from utility functions, and how to efficiently add methods to objects created by constructor functions.",
+          "category": "javascript"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "4",
+      "fields": {
+          "title": "Understanding Algorithmic Complexity",
+          "content": "I provided a breakdown of the common order-of-growth classifications used to describe algorithmic efficiency, ranging from constant time to exponential time.",
+          "category": "algorithms"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "5",
+      "fields": {
+          "title": "Express Framework Essentials",
+          "content": "You shared a snippet of Node.js code utilizing the Express framework to set up server routes and render views with EJS templating, including a route that generates a random number.",
+          "category": "javascript"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "6",
+      "fields": {
+          "title": "Deep Dive into JavaScript and Node.js",
+          "content": "We started by discussing JavaScript prototypes, including how to add methods to JavaScript's native object prototypes, like the String prototype. We then moved on to programming logic in Python, discussing the creation and correction of functions for age-related benefits and summing odd numbers. Constructor functions in JavaScript were also covered, highlighting their differences from utility functions, and methods for adding methods to objects created by them. We briefly touched upon order-of-growth classifications in computer science for algorithm efficiency.",
+          "category": "javascript"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "7",
+      "fields": {
+          "title": "Express.js Route Handling",
+          "content": "You shared a snippet of Node.js code using Express.js to set up server routes. We went through three different route handlers ('/', '/rand', and '/r/:subreddit'), discussing how each handles requests and renders EJS templates differently.",
+          "category": "javascript"
+      }
+  },
+  {
+      "model": "studybuddyapi.topic",
+      "pk": "8",
+      "fields": {
+          "title": "EJS Template Debugging",
+          "content": "You encountered a syntax error in an EJS template and we corrected it. The issue was the incorrect use of <%= in an if statement. We also discussed the correct use of EJS tags, differentiating between <% %> for JavaScript logic and <%= %> for outputting values to the template.",
+          "category": "javascript"
+      }
+  }
+]
