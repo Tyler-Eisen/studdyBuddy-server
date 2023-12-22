@@ -2,6 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
+from rest_framework.decorators import action
 from studybuddyapi.models import Topic
 from studybuddyapi.serializers import TopicSerializer
 
@@ -18,6 +19,7 @@ class TopicView(ViewSet):
             return Response(data)
         except Exception as ex:
             return HttpResponseServerError(ex)
+    
         
     def list(self, request):
     # Get all Topic instances
@@ -66,3 +68,13 @@ class TopicView(ViewSet):
         topic = Topic.objects.get(pk=pk)
         topic.delete()
         return Response({'message': 'Topic Destroyed'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=False, methods=['get'])
+    def random(self, request):
+        """GET request to retrieve a random Topic"""
+        topic = Topic.objects.order_by('?').first()
+        if topic is not None:
+            serializer = TopicSerializer(topic, context={'request': request})
+            return Response(serializer.data)
+        else:
+            return Response({'message': 'No topics available'}, status=status.HTTP_404_NOT_FOUND)
