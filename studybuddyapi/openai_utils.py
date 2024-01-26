@@ -4,7 +4,7 @@ import os
 def generate_question(topic):
     openai.api_key = os.getenv('OPENAI_API_KEY')
     response = openai.Completion.create(
-        engine="gpt-3.5-turbo-instruct",  # adjust the model as needed
+        engine="gpt-3.5-turbo-instruct",
         prompt=f"Create an interview question about: {topic}",
         max_tokens=50
     )

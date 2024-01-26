@@ -12,12 +12,9 @@ class OpenAIView(ViewSet):
     @action(detail=True, methods=['get'], url_path='generate')
     def generate(self, request, pk=None):
         try:
-            # Retrieve the Topic instance using the provided primary key (pk)
             topic = Topic.objects.get(pk=pk)
-            # Generate a question based on the topic's title
             question = generate_question(topic.title)
 
-            # Return the generated question
             return Response({'question': question}, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)

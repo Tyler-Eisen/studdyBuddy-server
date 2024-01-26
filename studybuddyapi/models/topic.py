@@ -5,3 +5,4 @@ class Topic(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField() 
     category = models.CharField(max_length=255)
+    user_id = models.ForeignKey("User", on_delete=models.CASCADE, null=True, blank=True)
