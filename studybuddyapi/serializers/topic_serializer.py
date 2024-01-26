@@ -4,4 +4,4 @@ from studybuddyapi.models import Topic
 class TopicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Topic
-        fields = ['id', 'title', 'content', 'category', 'user_id']
+        fields = ['id', 'title', 'content', 'category']

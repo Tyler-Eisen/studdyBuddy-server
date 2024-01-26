@@ -1,0 +1,10 @@
+[
+  {
+      "model": "studybuddyapi.user",
+      "pk": 1, 
+      "fields": {
+          "name": "Tyler",
+          "uid": "001"
+      }
+  }
+]

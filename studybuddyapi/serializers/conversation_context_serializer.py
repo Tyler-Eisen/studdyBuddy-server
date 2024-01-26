@@ -1,7 +1,7 @@
-from rest_framework import serializers
-from studybuddyapi.models import ConversationContext
+# from rest_framework import serializers
+# from studybuddyapi.models import ConversationContext
 
-class ConversationContextSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ConversationContext
-        fields = ['session_id', 'context_data']  # Adjust the fields based on your model fields
+# class ConversationContextSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = ConversationContext
+#         fields = ['session_id', 'context_data']  # Adjust the fields based on your model fields
