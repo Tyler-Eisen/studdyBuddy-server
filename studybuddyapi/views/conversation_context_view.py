@@ -32,22 +32,16 @@ class ConversationContextView(ViewSet):
 
 
     def create(self, request):
-    # Check if the user is authenticated
-      if not request.user.is_authenticated:
-        return Response({'error': 'User must be authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
-
-      serializer = ConversationContextSerializer(data=request.data)
-      if serializer.is_valid():
-        # Save the instance with the authenticated user
-        serializer.save(user_id=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-      else:
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        serializer = ConversationContextSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, pk=None):
         try:
-            context = ConversationContext.objects.get(pk=pk, user_id=request.user)
+            context = ConversationContext.objects.get(pk=pk)
             serializer = ConversationContextSerializer(context, data=request.data)
             if serializer.is_valid():
                 serializer.save()
