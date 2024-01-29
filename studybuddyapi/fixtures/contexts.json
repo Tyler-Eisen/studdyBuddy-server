@@ -1,0 +1,20 @@
+[
+  {
+      "model": "studybuddyapi.conversationcontext",
+      "pk": 1,
+      "fields": {
+          "session_id": "session12345",
+          "context_data": "User asked about data structures in Python.",
+          "user_id": 1
+      }
+  },
+  {
+      "model": "studybuddyapi.conversationcontext",
+      "pk": 2,
+      "fields": {
+          "session_id": "session12346",
+          "context_data": "User requested information on JavaScript closures.",
+          "user_id": 1
+      }
+  }
+]
