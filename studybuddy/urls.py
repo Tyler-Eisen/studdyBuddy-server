@@ -1,4 +1,4 @@
-from studybuddyapi.views import TopicView,OpenAIView, UserView, ConversationContextView
+from studybuddyapi.views import TopicView,OpenAIView, UserView, ConversationContextView, UserResponseView
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
@@ -9,7 +9,9 @@ router.register(r'ai', OpenAIView, 'ai')
 router.register(r'users', UserView, 'user')
 router.register(r'conversation_context', ConversationContextView, 'conversation_context')
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('user_response/', UserResponseView.as_view(), name='user_response'),
 ]

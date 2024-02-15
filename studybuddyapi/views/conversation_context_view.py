@@ -10,7 +10,7 @@ class ConversationContextView(ViewSet):
     def retrieve(self, request, pk=None):
         try:
             # Retrieve the specific ConversationContext instance
-            context = ConversationContext.objects.get(pk=pk, user_id=request.user)
+            context = ConversationContext.objects.get(pk=pk)
             serializer = ConversationContextSerializer(context, context={'request': request})
             return Response(serializer.data)
         except ConversationContext.DoesNotExist:
@@ -18,16 +18,17 @@ class ConversationContextView(ViewSet):
         except Exception as ex:
             return HttpResponseServerError(ex)
 
-    def list(self, request):
-      user_id = request.query_params.get('user_id')
-      if user_id:
-        contexts = ConversationContext.objects.filter(user_id=user_id)
-      else:
-        contexts = ConversationContext.objects.filter(user_id=request.user)
-    
-      serializer = ConversationContextSerializer(contexts, many=True)
-      return Response(serializer.data)
 
+
+    def list(self, request):
+        user_id = request.query_params.get('user_id', None)
+        if user_id is not None:
+            contexts = ConversationContext.objects.filter(user_id=user_id)
+        else:
+            contexts = ConversationContext.objects.all()
+
+        serializer = ConversationContextSerializer(contexts, many=True, context={'request': request})
+        return Response(serializer.data)
 
 
 

@@ -11,10 +11,14 @@ def generate_question(topic):
     return response.choices[0].text.strip()
 
 def review_answer(answer):
-    openai.api_key = os.getenv('OPENAI_API_KEY')
-    response = openai.Completion.create(
-        engine="gpt-3.5-turbo-instruct",  # adjust the model as needed
-        prompt=f"Review this answer for quality and relevance: {answer}",
-        max_tokens=50
-    )
-    return response.choices[0].text.strip()
+    try:
+        openai.api_key = os.getenv('OPENAI_API_KEY')
+        response = openai.Completion.create(
+            engine="gpt-3.5-turbo-instruct",
+            prompt=f"Review this answer for quality and relevance: {answer}",
+            max_tokens=50
+        )
+        return response.choices[0].text.strip()
+    except Exception as e:
+        print(f"Error reviewing answer: {e}")
+        return None
